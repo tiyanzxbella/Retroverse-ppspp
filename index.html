@@ -7,27 +7,36 @@
 	<link rel="icon" type="image/png" href="/fav.png">
 	<img src="https://files.catbox.moe/0ia9xv.jpg" alt="RetroVerze Logo"
 		style="width: auto; max-width: 150px; height: auto; margin-bottom: 20px;">
-	<title>RetroVerze</title>
+	<title>RetroVerze - Dark</title>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-SH86BQ0PDS"></script>
 	<style>
+		/* === DARK THEME === */
 		body {
 			font-family: Arial, sans-serif;
-			background-color: #f2f2f2;
-			color: #333;
+			background-color: #121212; /* latar gelap */
+			color: #e0e0e0; /* teks terang */
 			text-align: center;
 			margin: 0;
 			padding: 20px;
 		}
 
-		h1,
-		h2 {
-			margin: 10px 0;
+		h1, h2, h3, h4 {
+			color: #ffffff; /* heading putih */
+		}
+
+		a {
+			color: #80cbc4; /* aksen cyan lembut */
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+			color: #4db6ac;
 		}
 
 		.tray {
-			background-color: #fff;
+			background-color: #1e1e1e; /* gelap untuk tray */
 			border-radius: 10px;
-			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* shadow lebih gelap */
 			padding: 15px;
 			width: 100%;
 			max-width: 600px;
@@ -35,17 +44,27 @@
 			display: inline-block;
 			margin: 0 auto 5px;
 			text-align: center;
+			border: 1px solid #333; /* border subtle */
+			color: #e0e0e0;
 		}
 
 		.tray-content {
 			display: none;
 			padding: 10px;
+			background-color: #1a1a1a; /* sedikit lebih gelap dari tray */
+			border-radius: 0 0 10px 10px;
+			border: 1px solid #333;
+			border-top: none;
+			margin-top: -5px;
+			max-width: 600px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 
 		.footer {
 			margin-top: 20px;
 			font-size: 14px;
-			color: #777;
+			color: #aaa; /* abu-abu terang */
 		}
 
 		.tray-container {
@@ -55,36 +74,37 @@
 
 		table {
 			width: 90%;
-			/* Mengurangi lebar tabel sedikit agar tidak menempel ke kanan */
 			max-width: 600px;
 			margin: 20px auto;
-			/* Margin otomatis untuk meratakan tabel ke tengah */
 			border-collapse: collapse;
+			background-color: #1e1e1e;
+			color: #e0e0e0;
+			border: 1px solid #333;
 		}
 
-		th,
-		td {
-			border: 1px solid #ddd;
+		th, td {
+			border: 1px solid #444;
 			padding: 8px;
 			text-align: center;
 		}
 
 		th {
-			background-color: #f2f2f2;
+			background-color: #2d2d2d; /* sedikit lebih terang dari body */
 			font-weight: bold;
-			border-bottom: 2px solid #333;
+			border-bottom: 2px solid #555;
+			color: #ffffff;
 		}
 
 		tr:nth-child(even) {
-			background-color: #f9f9f9;
+			background-color: #2a2a2a; /* baris genap */
 		}
 
 		tr:hover {
-			background-color: #e0e0e0;
+			background-color: #3a3a3a; /* hover lebih terang */
 		}
 
 		.hall-row:hover {
-			background-color: #f1f1f1;
+			background-color: #3a3a3a;
 		}
 
 		.hidden {
@@ -98,74 +118,115 @@
 		}
 
 		.no-active-player {
-			color: red;
+			color: #ff8a80; /* merah lembut untuk teks peringatan */
 			font-weight: bold;
 		}
 
-		@media screen and (max-width: 768px) {
+		/* tombol (jika ada kelas button) */
+		.button {
+			background-color: #333;
+			color: #e0e0e0;
+			padding: 8px 16px;
+			border-radius: 5px;
+			text-decoration: none;
+			display: inline-block;
+			margin: 4px 2px;
+			border: 1px solid #555;
+		}
+		.button:hover {
+			background-color: #444;
+			color: #ffffff;
+			border-color: #777;
+		}
 
-			.tray,
-			table {
+		/* gambar loading biarkan tetap, atau bisa disesuaikan */
+		img[alt="loading"] {
+			filter: brightness(0.9); /* sedikit redup agar tidak terlalu mencolok */
+		}
+
+		/* logo retroverze */
+		img[alt="RetroVerze Logo"] {
+			filter: brightness(0.95);
+		}
+
+		/* link discord, saweria, ko-fi */
+		a.button img {
+			vertical-align: middle;
+			margin-right: 5px;
+			filter: invert(0) brightness(0.9); /* sesuaikan jika logo terlalu gelap */
+		}
+
+		/* untuk footer link */
+		.footer a {
+			color: #80cbc4;
+		}
+		.footer a:hover {
+			color: #4db6ac;
+		}
+
+		@media screen and (max-width: 768px) {
+			.tray, table {
 				width: 90%;
 			}
 		}
 	</style>
-	<script>eval(atob("CgkJZnVuY3Rpb24gdG9nZ2xlVHJheSh0cmF5SWQpIHsKCQkJY29uc3QgdHJheUNvbnRlbnQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCh0cmF5SWQpOwoJCQljb25zdCBpc09wZW5pbmcgPSB0cmF5Q29udGVudC5zdHlsZS5kaXNwbGF5ID09PSAnbm9uZScgfHwgdHJheUNvbnRlbnQuc3R5bGUuZGlzcGxheSA9PT0gJyc7CgoJCQl0cmF5Q29udGVudC5zdHlsZS5kaXNwbGF5ID0gaXNPcGVuaW5nID8gJ2Jsb2NrJyA6ICdub25lJzsKCgkJCWlmICh0cmF5SWQgPT09ICdzdGF0dXMtY29udGVudCcpIHsKCQkJCWNvbnN0IHRpdGxlRWxlbWVudCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdsb2JieS10aXRsZScpOwoJCQkJaWYgKGlzT3BlbmluZykgewoJCQkJCWZldGNoKCdodHRwczovL3NlcmF0dXMucmV0cm92ZXJ6ZS5teS5pZC9jb3VudCcpCgkJCQkJCS50aGVuKHJlcyA9PiByZXMuanNvbigpKQoJCQkJCQkudGhlbihkYXRhID0+IHsKCQkJCQkJCWlmIChkYXRhLnRvdGFsX3VzZXJzICE9PSB1bmRlZmluZWQpIHsKCQkJCQkJCQl0aXRsZUVsZW1lbnQuaW5uZXJUZXh0ID0gYEFjdGl2ZSBQbGF5ZXI6ICR7ZGF0YS50b3RhbF91c2Vyc31gOwoJCQkJCQkJfQoJCQkJCQl9KQoJCQkJCQkuY2F0Y2goZXJyID0+IHsKCQkJCQkJCWNvbnNvbGUuZXJyb3IoJ0Vycm9yIGZldGNoaW5nIGNvdW50OicsIGVycik7CgkJCQkJCX0pOwoJCQkJfSBlbHNlIHsKCQkJCQl0aXRsZUVsZW1lbnQuaW5uZXJUZXh0ID0gJ0xvYmJ5IFN0YXR1cyc7CgkJCQl9CgkJCX0KCQl9CgoJCWZ1bmN0aW9uIHVwZGF0ZURhdGEoKSB7CgkJCWNvbnN0IGxvYmJ5U3RhdHVzQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0YXR1cy1jb250ZW50Jyk7CgoJCQkvLyBNdWxhaSBwcm9zZXMgZmV0Y2ggdGFucGEgbWVuaW1wYSBrb250ZW4gZGVuZ2FuICJMb2FkaW5nIC4gLiAuIgoJCQlmZXRjaCgnaHR0cHM6Ly9zZXJhdHVzLnJldHJvdmVyemUubXkuaWQvc3RhdHVzLnhtbCcpCgkJCQkudGhlbihyZXNwb25zZSA9PiByZXNwb25zZS50ZXh0KCkpCgkJCQkudGhlbih4bWxTdHJpbmcgPT4gewoJCQkJCWNvbnN0IHBhcnNlciA9IG5ldyBET01QYXJzZXIoKTsKCQkJCQljb25zdCB4bWwgPSBwYXJzZXIucGFyc2VGcm9tU3RyaW5nKHhtbFN0cmluZywgImFwcGxpY2F0aW9uL3htbCIpOwoKCQkJCQkvLyBLb3NvbmdrYW4ga29udGFpbmVyIHNldGVsYWggZGF0YSBkaWFtYmlsIGRhbiBwYXJzaW5nCgkJCQkJbG9iYnlTdGF0dXNDb250YWluZXIuaW5uZXJIVE1MID0gJyc7CgoJCQkJCWNvbnN0IGdhbWVzID0gQXJyYXkuZnJvbSh4bWwuZ2V0RWxlbWVudHNCeVRhZ05hbWUoJ2dhbWUnKSk7CgoJCQkJCS8vIEppa2EgdGlkYWsgYWRhIGdhbWUgeWFuZyBha3RpZiwgdGFtcGlsa2FuIHBlc2FuICJObyBBY3RpdmUgTG9iYnkiCgkJCQkJaWYgKGdhbWVzLmxlbmd0aCA9PT0gMCkgewoJCQkJCQlsb2JieVN0YXR1c0NvbnRhaW5lci5pbm5lckhUTUwgPSAnPHA+Tm8gQWN0aXZlIExvYmJ5PC9wPic7CgkJCQkJCXJldHVybjsKCQkJCQl9CgoJCQkJCS8vIFVydXRrYW4gZ2FtZSBhZ2FyIE1IUDNRIGRhbiBNSFAyUSBzZWxhbHUgZGkgYXRhcwoJCQkJCWdhbWVzLnNvcnQoKGEsIGIpID0+IHsKCQkJCQkJY29uc3QgZ2FtZU5hbWVBID0gYS5nZXRBdHRyaWJ1dGUoJ25hbWUnKTsKCQkJCQkJY29uc3QgZ2FtZU5hbWVCID0gYi5nZXRBdHRyaWJ1dGUoJ25hbWUnKTsKCQkJCQkJaWYgKGdhbWVOYW1lQSA9PT0gJ01vbnN0ZXIgSHVudGVyIFBvcnRhYmxlIDNyZCcpIHJldHVybiAtMTsKCQkJCQkJaWYgKGdhbWVOYW1lQiA9PT0gJ01vbnNterIgSHVudGVyIFBvcnRhYmxlIDNyZCcpIHJldHVybiAxOwoJCQkJCQlpZiAoZ2FtZU5hbWVBID09PSAnTW9uc3RlciBIdW50ZXIgRnJlZWRvbSBVbml0ZScpIHJldHVybiAtMTsKCQkJCQkJaWYgKGdhbWVOYW1lQiA9PT0gJ01vbnN0ZXIgSHVudGVyIEZyZWVkb20gVW5pdGUnKSByZXR1cm4gMTsKCQkJCQkJcmV0dXJuIDA7CgkJCQkJfSk7CgoJCQkJCS8vIEl0ZXJhc2kgbWVsYWx1aSBzZXRpYXAgZ2FtZSB5YW5nIHRlbGFoIGRpdXJ1dGthbgoJCQkJCWdhbWVzLmZvckVhY2goZ2FtZSA9PiB7CgkJCQkJCWNvbnN0IGdhbWVOYW1lID0gZ2FtZS5nZXRBdHRyaWJ1dGUoJ25hbWUnKTsKCQkJCQkJY29uc3QgZ3JvdXBzID0gZ2FtZS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnZ3JvdXAnKTsKCgkJCQkJCS8vIEppa2EgdGlkYWsgYWRhIGdydXAgZGkgZGFsYW0gZ2FtZSwgdGFtcGlsa2FuIHBlc2FuICJObyBBY3RpdmUgTG9iYnkiCgkJCQkJCWlmIChncm91cHMubGVuZ3RoID09PSAwKSB7CgkJCQkJCQlsb2JieVN0YXR1c0NvbnRhaW5lci5pbm5lckhUTUwgKz0gYDxwPk5vIEFjdGl2ZSBMb2JieSBmb3IgJHtnYW1lTmFtZX08L3A+YDsKCQkJCQkJCXJldHVybjsKCQkJCQkJfQoKCQkJCQkJLy8gQXJyYXkgdW50dWsgbWVueWltcGFuIGxvYmkgeWFuZyBha2FuIGRpdXJ1dGthbgoJCQkJCQljb25zdCBsb2JiaWVzID0gW107CgoJCQkJCQlmb3IgKGxldCBqID0gMDsgaiA8IGdyb3Vwcy5sZW5ndGg7IGorKykgewoJCQkJCQkJY29uc3QgZ3JvdXAgPSBncm91cHNbal07CgkJCQkJCQlsZXQgZ3JvdXBOYW1lID0gZ3JvdXAuZ2V0QXR0cmlidXRlKCduYW1lJyk7CgkJCQkJCQlsZXQgdXNlckNvdW50ID0gZ3JvdXAuZ2V0QXR0cmlidXRlKCd1c2VyY291bnQnKTsKCQkJCQkJCWNvbnN0IHVzZXJzID0gQXJyYXkuZnJvbShncm91cC5nZXRFbGVtZW50c0J5VGFnTmFtZSgndXNlcicpKS5tYXAodXNlciA9PiB7CgkJCQkJCQkJbGV0IG5pY2tuYW1lID0gdXNlci50ZXh0Q29udGVudDsKCQkJCQkJCQkvLyBCYXRhc2kgbmlja25hbWUgbWFrc2ltYWwgMTAga2FyYWt0ZXIKCQkJCQkJCQlpZiAobmlja25hbWUubGVuZ3RoID4gMTApIHsKCQkJCQkJCQkJbmlja25hbWUgPSBuaWNrbmFtZS5zdWJzdHJpbmcoMCwgMTApOwoJCQkJCQkJCX0KCQkJCQkJCQlyZXR1cm4gbmlja25hbWU7CgkJCQkJCQl9KS5qb2luKCcsICcpOwoKCQkJCQkJCS8vIElkZW50aWZpa2FzaSBuYW1hIGdydXAgZGFuIHViYWggbWVuamFkaSBmb3JtYXQgR0ggWFggamlrYSBwZXJsdQoJCQkJCQkJbGV0IGRpc3BsYXlOYW1lID0gZ3JvdXBOYW1lOwoJCQkJCQkJY29uc3QgZ3JvdXBOdW1iZXIzID0gcGFyc2VJbnQoZ3JvdXBOYW1lLnJlcGxhY2UoJ01IUDNRJywgJycpKTsKCQkJCQkJCWNvbnN0IGdyb3VwTnVtYmVyMiA9IHBhcnNlSW50KGdyb3VwTmFtZS5yZXBsYWNlKCdNSFAyUScsICcnKSk7CgoJCQkJCQkJaWYgKGdyb3VwTmFtZS5zdGFydHNXaXRoKCdNSFAzUScpICYmIGdyb3VwTnVtYmVyMyA+PSAwICYmIGdyb3VwTnVtYmVyMyA8PSAyMykgewoJCQkJCQkJCWRpc3BsYXlOYW1lID0gYEdIICR7U3RyaW5nKGdyb3VwTnVtYmVyMyArIDEpLnBhZFN0YXJ0KDIsICcwJyl9YDsKCQkJCQkJCX0gZWxzZSBpZiAoZ3JvdXBOYW1lLnN0YXJ0c1dpdGgoJ01IUDJRJykgJiYgZ3JvdXBOdW1iZXIyID49IDAgJiYgZ3JvdXBOdW1iZXIyIDw9IDIzKSB7CgkJCQkJCQkJZGlzcGxheU5hbWUgPSBgR0ggJHtTdHJpbmcoZ3JvdXBOdW1iZXIyICsgMSkucGFkU3RhcnQoMiwgJzAnKX1gOwoJCQkJCQkJfQoKCQkJCQkJCS8vIEdhbnRpIHVzZXJDb3VudCBtZW5qYWRpICdGVUxMJyBqaWthIGp1bWxhaCBwZW5nZ3VuYSBhZGFsYWggNAoJCQkJCQkJaWYgKChncm91cE5hbWUuc3RhcnRzV2l0aCgnTUhQM1EnKSB8fCBncm91cE5hbWUuc3RhcnRzV2l0aCgnTUhQMlEnKSkgJiYgdXNlckNvdW50ID09PSAnNCcpIHsKCQkJCQkJCQl1c2VyQ291bnQgPSAnRlVMTCc7CgkJCQkJCQl9CgoJCQkJCQkJLy8gVGFtYmFoa2FuIGxvYmkga2UgYXJyYXkgZGVuZ2FuIG5hbWEgdGFtcGlsYW4sIHVzZXJDb3VudCwgZGFuIHVzZXJzCgkJCQkJCQlsb2JiaWVzLnB1c2goeyBkaXNwbGF5TmFtZSwgdXNlckNvdW50LCB1c2VycyB9KTsKCQkJCQkJfQoKCQkJCQkJLy8gVXJ1dGthbiBsb2JpIGJlcmRhc2Fya2FuIG5vbW9yIEdICgkJCQkJCWxvYmJpZXMuc29ydCgoYSwgYikgPT4gewoJCQkJCQkJY29uc3QgbnVtQSA9IHBhcnNlSW50KGEuZGlzcGxheU5hbWUucmVwbGFjZSgnR0ggJywgJycpKTsKCQkJCQkJCWNvbnN0IG51bUIgPSBwYXJzZUludChiLmRpc3BsYXlOYW1lLnJlcGxhY2UoJ0dIICcsICcnKSk7CgkJCQkJCQlyZXR1cm4gbnVtQSAtIG51bUI7CgkJCQkJCX0pOwoKCQkJCQkJLy8gQnVhdCB0YWJlbCBkZW5nYW4gbG9iaSB5YW5nIHN1ZGFoIGRpdXJ1dGthbgoJCQkJCQlsZXQgdGFibGVIVE1MID0gYDx0YWJsZT48dHI+PHRoIGNvbHNwYW49IjMiPiR7Z2FtZU5hbWV9PC90aD48L3RyPmA7CgkJCQkJCXRhYmxlSFRNTCArPSAnPHRyPjx0aD5Mb2JieTwvdGg+PHRoPlVzZXJzPC90aD48dGg+UGxheWVyczwvdGg+PC90cj4nOwoKCQkJCQkJbG9iYmllcy5mb3JFYWNoKGxvYmJ5ID0+IHsKCQkJCQkJCXRhYmxlSFRNTCArPSBgPHRyPjx0ZD4ke2xvYmJ5LmRpc3BsYXlOYW1lfTwvdGQ+PHRkPiR7bG9iYnkudXNlckNvdW50fTwvdGQ+PHRkPiR7bG9iYnkudXNlcnN9PC90ZD48L3RyPmA7CgkJCQkJCX0pOwoKCQkJCQkJdGFibGVIVE1MICs9ICc8L3RhYmxlPic7CgkJCQkJCWxvYmJ5U3RhdHVzQ29udGFpbmVyLmlubmVySFRNTCArPSB0YWJsZUhUTUw7CgkJCQkJfSk7CgkJCQl9KQoJCQkJLmNhdGNoKGVycm9yID0+IHsKCQkJCQljb25zb2xlLmVycm9yKCdFcnJvciBmZXRjaGluZyBkYXRhOicsIGVycm9yKTsKCQkJCQlsb2JieVN0YXR1c0NvbnRhaW5lci5pbm5lckhUTUwgPSAnPHA+RXJyb3IgbG9hZGluZyBkYXRhLjwvcD4nOyAvLyBUYW1waWxrYW4gcGVzYW4gZXJyb3IgamlrYSBmZXRjaCBnYWdhbAoJCQkJfSk7CgkJfQoKCQkvLyBQYW5nZ2lsIHVwZGF0ZURhdGEoKSBzZXRpYXAgMyBkZXRpawoJCXNldEludGVydmFsKHVwZGF0ZURhdGEsIDMwMDApOwoJ"));</script>
+	<script>eval(atob("CgkJZnVuY3Rpb24gdG9nZ2xlVHJheSh0cmF5SWQpIHsKCQkJY29uc3QgdHJheUNvbnRlbnQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCh0cmF5SWQpOwoJCQljb25zdCBpc09wZW5pbmcgPSB0cmF5Q29udGVudC5zdHlsZS5kaXNwbGF5ID09PSAnbm9uZScgfHwgdHJheUNvbnRlbnQuc3R5bGUuZGlzcGxheSA9PT0gJyc7CgoJCQl0cmF5Q29udGVudC5zdHlsZS5kaXNwbGF5ID0gaXNPcGVuaW5nID8gJ2Jsb2NrJyA6ICdub25lJzsKCgkJCWlmICh0cmF5SWQgPT09ICdzdGF0dXMtY29udGVudCcpIHsKCQkJCWNvbnN0IHRpdGxlRWxlbWVudCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdsb2JieS10aXRsZScpOwoJCQkJaWYgKGlzT3BlbmluZykgewoJCQkJCWZldGNoKCdodHRwczovL3NlcmF0dXMucmV0cm92ZXJ6ZS5teS5pZC9jb3VudCcpCgkJCQkJCS50aGVuKHJlcyA9PiByZXMuanNvbigpKQoJCQkJCQkudGhlbihkYXRhID0+IHsKCQkJCQkJCWlmIChkYXRhLnRvdGFsX3VzZXJzICE9PSB1bmRlZmluZWQpIHsKCQkJCQkJCQl0aXRsZUVsZW1lbnQuaW5uZXJUZXh0ID0gYEFjdGl2ZSBQbGF5ZXI6ICR7ZGF0YS50b3RhbF91c2Vyc31gOwoJCQkJCQkJfQoJCQkJCQl9KQoJCQkJCQkuY2F0Y2goZXJyID0+IHsKCQkJCQkJCWNvbnNvbGUuZXJyb3IoJ0Vycm9yIGZldGNoaW5nIGNvdW50OicsIGVycik7CgkJCQkJCX0pOwoJCQkJfSBlbHNlIHsKCQkJCQl0aXRsZUVsZW1lbnQuaW5uZXJUZXh0ID0gJ0xvYmJ5IFN0YXR1cyc7CgkJCQl9CgkJCX0KCQl9CgoJCWZ1bmN0aW9uIHVwZGF0ZURhdGEoKSB7CgkJCWNvbnN0IGxvYmJ5U3RhdHVzQ29udGFpbmVyID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0YXR1cy1jb250ZW50Jyk7CgoJCQkvLyBNdWxhaSBwcm9zZXMgZmV0Y2ggdGFucGEgbWVuaW1wYSBrb250ZW4gZGVuZ2FuICJMb2FkaW5nIC4gLiAuIgoJCQlmZXRjaCgnaHR0cHM6Ly9zZXJhdHVzLnJldHJvdmVyemUubXkuaWQvc3RhdHVzLnhtbCcpCgkJCQkudGhlbihyZXNwb25zZSA9PiByZXNwb25zZS50ZXh0KCkpCgkJCQkudGhlbih4bWxTdHJpbmcgPT4gewoJCQkJCWNvbnN0IHBhcnNlciA9IG5ldyBET01QYXJzZXIoKTsKCQkJCQljb25zdCB4bWwgPSBwYXJzZXIucGFyc2VGcm9tU3RyaW5nKHhtbFN0cmluZywgImFwcGxpY2F0aW9uL3htbCIpOwoKCQkJCQkvLyBLb3NvbmdrYW4ga29udGFpbmVyIHNldGVsYWggZGF0YSBkaWFtYmlsIGRhbiBwYXJzaW5nCgkJCQkJbG9iYnlTdGF0dXNDb250YWluZXIuaW5uZXJIVE1MID0gJyc7CgoJCQkJCWNvbnN0IGdhbWVzID0gQXJyYXkuZnJvbSh4bWwuZ2V0RWxlbWVudHNCeVRhZ05hbWUoJ2dhbWUnKSk7CgoJCQkJCS8vIEppa2EgdGlkYWsgYWRhIGdhbWUgeWFuZyBha3RpZiwgdGFtcGlsa2FuIHBlc2FuICJObyBBY3RpdmUgTG9iYnkiCgkJCQkJaWYgKGdhbWVzLmxlbmd0aCA9PT0gMCkgewoJCQkJCQlsb2JieVN0YXR1c0NvbnRhaW5lci5pbm5lckhUTUwgPSAnPHA+Tm8gQWN0aXZlIExvYmJ5PC9wPic7CgkJCQkJCXJldHVybjsKCQkJCQl9CgoJCQkJCS8vIFVydXRrYW4gZ2FtZSBhZ2FyIE1IUDNRIGRhbiBNSFAyUSBzZWxhbHUgZGkgYXRhcwoJCQkJCWdhbWVzLnNvcnQoKGEsIGIpID0+IHsKCQkJCQkJY29uc3QgZ2FtZU5hbWVBID0gYS5nZXRBdHRyaWJ1dGUoJ25hbWUnKTsKCQkJCQkJY29uc3QgZ2FtZU5hbWVCID0gYi5nZXRBdHRyaWJ1dGUoJ25hbWUnKTsKCQkJCQkJaWYgKGdhbWVOYW1lQSA9PT0gJ01vbnN0ZXIgSHVudGVyIFBvcnRhYmxlIDNyZCcpIHJldHVybiAtMTsKCQkJCQkJaWYgKGdhbWVOYW1lQiA9PT0gJ01vbnRterIgSHVudGVyIFBvcnRhYmxlIDNyZCcpIHJldHVybiAxOwoJCQkJCQlpZiAoZ2FtZU5hbWVBID09PSAnTW9uc3RlciBIdW50ZXIgRnJlZWRvbSBVbml0ZScpIHJldHVybiAtMTsKCQkJCQkJaWYgKGdhbWVOYW1lQiA9PT0gJ01vbnN0ZXIgSHVudGVyIEZyZWVkb20gVW5pdGUnKSByZXR1cm4gMTsKCQkJCQkJcmV0dXJuIDA7CgkJCQkJfSk7CgoJCQkJCS8vIEl0ZXJhc2kgbWVsYWx1aSBzZXRpYXAgZ2FtZSB5YW5nIHRlbGFoIGRpdXJ1dGthbgoJCQkJCWdhbWVzLmZvckVhY2goZ2FtZSA9PiB7CgkJCQkJCWNvbnN0IGdhbWVOYW1lID0gZ2FtZS5nZXRBdHRyaWJ1dGUoJ25hbWUnKTsKCQkJCQkJY29uc3QgZ3JvdXBzID0gZ2FtZS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnZ3JvdXAnKTsKCgkJCQkJCS8vIEppa2EgdGlkYWsgYWRhIGdydXAgZGkgZGFsYW0gZ2FtZSwgdGFtcGlsa2FuIHBlc2FuICJObyBBY3RpdmUgTG9iYnkiCgkJCQkJCWlmIChncm91cHMubGVuZ3RoID09PSAwKSB7CgkJCQkJCQlsb2JieVN0YXR1c0NvbnRhaW5lci5pbm5lckhUTUwgKz0gYDxwPk5vIEFjdGl2ZSBMb2JieSBmb3IgJHtnYW1lTmFtZX08L3A+YDsKCQkJCQkJCXJldHVybjsKCQkJCQkJfQoKCQkJCQkJLy8gQXJyYXkgdW50dWsgbWVueWltcGFuIGxvYmkgeWFuZyBha2FuIGRpdXJ1dGthbgoJCQkJCQljb25zdCBsb2JiaWVzID0gW107CgoJCQkJCQlmb3IgKGxldCBqID0gMDsgaiA8IGdyb3Vwcy5sZW5ndGg7IGorKykgewoJCQkJCQkJY29uc3QgZ3JvdXAgPSBncm91cHNbal07CgkJCQkJCQlsZXQgZ3JvdXBOYW1lID0gZ3JvdXAuZ2V0QXR0cmlidXRlKCduYW1lJyk7CgkJCQkJCQlsZXQgdXNlckNvdW50ID0gZ3JvdXAuZ2V0QXR0cmlidXRlKCd1c2VyY291bnQnKTsKCQkJCQkJCWNvbnN0IHVzZXJzID0gQXJyYXkuZnJvbShncm91cC5nZXRFbGVtZW50c0J5VGFnTmFtZSgndXNlcicpKS5tYXAodXNlciA9PiB7CgkJCQkJCQkJbGV0IG5pY2tuYW1lID0gdXNlci50ZXh0Q29udGVudDsKCQkJCQkJCQkvLyBCYXRhc2kgbmlja25hbWUgbWFrc2ltYWwgMTAga2FyYWt0ZXIKCQkJCQkJCQlpZiAobmlja25hbWUubGVuZ3RoID4gMTApIHsKCQkJCQkJCQkJbmlja25hbWUgPSBuaWNrbmFtZS5zdWJzdHJpbmcoMCwgMTApOwoJCQkJCQkJCX0KCQkJCQkJCQlyZXR1cm4gbmlja25hbWU7CgkJCQkJCQl9KS5qb2luKCcsICcpOwoKCQkJCQkJCS8vIElkZW50aWZpa2FzaSBuYW1hIGdydXAgZGFuIHViYWggbWVuamFkaSBmb3JtYXQgR0ggWFggamlrYSBwZXJsdQoJCQkJCQkJbGV0IGRpc3BsYXlOYW1lID0gZ3JvdXBOYW1lOwoJCQkJCQkJY29uc3QgZ3JvdXBOdW1iZXIzID0gcGFyc2VJbnQoZ3JvdXBOYW1lLnJlcGxhY2UoJ01IUDNRJywgJycpKTsKCQkJCQkJCWNvbnN0IGdyb3VwTnVtYmVyMiA9IHBhcnNlSW50KGdyb3VwTmFtZS5yZXBsYWNlKCdNSFAyUScsICcnKSk7CgoJCQkJCQkJaWYgKGdyb3VwTmFtZS5zdGFydHNXaXRoKCdNSFAzUScpICYmIGdyb3VwTnVtYmVyMyA+PSAwICYmIGdyb3VwTnVtYmVyMyA8PSAyMykgewoJCQkJCQkJCWRpc3BsYXlOYW1lID0gYEdIICR7U3RyaW5nKGdyb3VwTnVtYmVyMyArIDEpLnBhZFN0YXJ0KDIsICcwJyl9YDsKCQkJCQkJCX0gZWxzZSBpZiAoZ3JvdXBOYW1lLnN0YXJ0c1dpdGgoJ01IUDJRJykgJiYgZ3JvdXBOdW1iZXIyID49IDAgJiYgZ3JvdXBOdW1iZXIyIDw9IDIzKSB7CgkJCQkJCQkJZGlzcGxheU5hbWUgPSBgR0ggJHtTdHJpbmcoZ3JvdXBOdW1iZXIyICsgMSkucGFkU3RhcnQoMiwgJzAnKX1gOwoJCQkJCQkJfQoKCQkJCQkJCS8vIEdhbnRpIHVzZXJDb3VudCBtZW5qYWRpICdGVUxMJyBqaWthIGp1bWxhaCBwZW5nZ3VuYSBhZGFsYWggNAoJCQkJCQkJaWYgKChncm91cE5hbWUuc3RhcnRzV2l0aCgnTUhQM1EnKSB8fCBncm91cE5hbWUuc3RhcnRzV2l0aCgnTUhQMlEnKSkgJiYgdXNlckNvdW50ID09PSAnNCcpIHsKCQkJCQkJCQl1c2VyQ291bnQgPSAnRlVMTCc7CgkJCQkJCQl9CgoJCQkJCQkJLy8gVGFtYmFoa2FuIGxvYmkga2UgYXJyYXkgZGVuZ2FuIG5hbWEgdGFtcGlsYW4sIHVzZXJDb3VudCwgZGFuIHVzZXJzCgkJCQkJCQlsb2JiaWVzLnB1c2goeyBkaXNwbGF5TmFtZSwgdXNlckNvdW50LCB1c2VycyB9KTsKCQkJCQkJfQoKCQkJCQkJLy8gVXJ1dGthbiBsb2JpIGJlcmRhc2Fya2FuIG5vbW9yIEdICgkJCQkJCWxvYmJpZXMuc29ydCgoYSwgYikgPT4gewoJCQkJCQkJY29uc3QgbnVtQSA9IHBhcnNlSW50KGEuZGlzcGxheU5hbWUucmVwbGFjZSgnR0ggJywgJycpKTsKCQkJCQkJCWNvbnN0IG51bUIgPSBwYXJzZUludChiLmRpc3BsYXlOYW1lLnJlcGxhY2UoJ0dIICcsICcnKSk7CgkJCQkJCQlyZXR1cm4gbnVtQSAtIG51bUI7CgkJCQkJCX0pOwoKCQkJCQkJLy8gQnVhdCB0YWJlbCBkZW5nYW4gbG9iaSB5YW5nIHN1ZGFoIGRpdXJ1dGthbgoJCQkJCQlsZXQgdGFibGVIVE1MID0gYDx0YWJsZT48dHI+PHRoIGNvbHNwYW49IjMiPiR7Z2FtZU5hbWV9PC90aD48L3RyPmA7CgkJCQkJCXRhYmxlSFRNTCArPSAnPHRyPjx0aD5Mb2JieTwvdGg+PHRoPlVzZXJzPC90aD48dGg+UGxheWVyczwvdGg+PC90cj4nOwoKCQkJCQkJbG9iYmllcy5mb3JFYWNoKGxvYmJ5ID0+IHsKCQkJCQkJCXRhYmxlSFRNTCArPSBgPHRyPjx0ZD4ke2xvYmJ5LmRpc3BsYXlOYW1lfTwvdGQ+PHRkPiR7bG9iYnkudXNlckNvdW50fTwvdGQ+PHRkPiR7bG9iYnkudXNlcnN9PC90ZD48L3RyPmA7CgkJCQkJCX0pOwoKCQkJCQkJdGFibGVIVE1MICs9ICc8L3RhYmxlPic7CgkJCQkJCWxvYmJ5U3RhdHVzQ29udGFpbmVyLmlubmVySFRNTCArPSB0YWJsZUhUTUw7CgkJCQkJfSk7CgkJCQl9KQoJCQkJLmNhdGNoKGVycm9yID0+IHsKCQkJCQljb25zb2xlLmVycm9yKCdFcnJvciBmZXRjaGluZyBkYXRhOicsIGVycm9yKTsKCQkJCQlsb2JieVN0YXR1c0NvbnRhaW5lci5pbm5lckhUTUwgPSAnPHA+RXJyb3IgbG9hZGluZyBkYXRhLjwvcD4nOyAvLyBUYW1waWxrYW4gcGVzYW4gZXJyb3IgamlrYSBmZXRjaCBnYWdhbAoJCQkJfSk7CgkJfQoKCQkvLyBQYW5nZ2lsIHVwZGF0ZURhdGEoKSBzZXRpYXAgMyBkZXRpawoJCXNldEludGVydmFsKHVwZGF0ZURhdGEsIDMwMDApOwoJ"));</script>
 </head>
 
 <body>
 	<h1>TiyanVerze</h1>
 	<h3>Simple Online PPSSPP Server</h3>
-	<h4><a href="https://discord.gg/RNmVtTtqTh" class="button" ">RetroVerze Discord Server</a></h4>
-	<div class=" tray-container">
-			<div class="tray" onclick="toggleTray('status-content')">
-				<h2 id="lobby-title">Lobby Status</h2>
-			</div>
-			<!-- Pesan "Loading . . ." langsung diisi di HTML, akan dihapus saat data selesai diambil -->
-			<div id="status-content" class="tray-content">
-				<p>Now Loading . . .</p>
-				<img src="/loading.gif" alt="loading"
-					style="width: auto; max-width: 150px; height: auto; margin-top: 20px; margin-bottom: 20px;">
-			</div>
-			</div>
-			<div class="tray-container">
-				<div class="tray" onclick="toggleTray('tutorial-content')">
-					<h2>Tutorial</h2>
-				</div>
-				<div id="tutorial-content" class="tray-content">
-					<p>Download OpenVPN App</p>
-					<p>Download OpenVPN Cert in Download Tab</p>
-					<p>Open App, Import Cert</p>
-					<p>Now Connect</p>
-					<p>Go to PPSSPP settings.</p>
-					<p>Enable networking/WLAN [✔]</p>
-					<p>Set IP Address: 10.42.0.1</p>
-					<p>Enable Network Chat [✔]</p>
-					<p>Set Port to 0</p>
-					<p>Happy Gaming!!!</p>
-				</div>
-			</div>
-
-			<div class="tray-container">
-				<div class="tray" onclick="toggleTray('download-content')">
-					<h2>Download</h2>
-				</div>
-				<div id="download-content" class="tray-content">
-					<p>Download Openvpn Cert</p>
-					<a href="https://retroverze.my.id/RetroVerze.ovpn" class="button" ">Download</a>
+	<h4><a href="https://discord.gg/RNmVtTtqTh" class="button">RetroVerze Discord Server</a></h4>
+	<div class="tray-container">
+		<div class="tray" onclick="toggleTray('status-content')">
+			<h2 id="lobby-title">Lobby Status</h2>
+		</div>
+		<!-- Pesan "Loading . . ." langsung diisi di HTML, akan dihapus saat data selesai diambil -->
+		<div id="status-content" class="tray-content">
+			<p>Now Loading . . .</p>
+			<img src="/loading.gif" alt="loading"
+				style="width: auto; max-width: 150px; height: auto; margin-top: 20px; margin-bottom: 20px;">
+		</div>
+	</div>
+	<div class="tray-container">
+		<div class="tray" onclick="toggleTray('tutorial-content')">
+			<h2>Tutorial</h2>
+		</div>
+		<div id="tutorial-content" class="tray-content">
+			<p>Download OpenVPN App</p>
+			<p>Download OpenVPN Cert in Download Tab</p>
+			<p>Open App, Import Cert</p>
+			<p>Now Connect</p>
+			<p>Go to PPSSPP settings.</p>
+			<p>Enable networking/WLAN [✔]</p>
+			<p>Set IP Address: 10.42.0.1</p>
+			<p>Enable Network Chat [✔]</p>
+			<p>Set Port to 0</p>
+			<p>Happy Gaming!!!</p>
 		</div>
 	</div>
 
-	<div class=" footer">
-						<a href="https://saweria.co/retroverze" class="button"> <img
-								src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F01c81f8c-18c9-47d7-b7ad-c04058016626_225x225.png"
-								alt="Saweria Logo"
-								style="height: 20px; vertical-align: middle; margin-right: 8px;">Saweria</a> || <a
-							href="https://ko-fi.com/retroverze" class="button">Ko-fi<img
-								src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt="Ko-fi Logo"
-								style="height: 20px; vertical-align: middle; margin-left: 8px;"></a>
-						<p>Made with ❤️ by Felis</p>
-				</div>
+	<div class="tray-container">
+		<div class="tray" onclick="toggleTray('download-content')">
+			<h2>Download</h2>
+		</div>
+		<div id="download-content" class="tray-content">
+			<p>Download Openvpn Cert</p>
+			<a href="https://retroverze.my.id/RetroVerze.ovpn" class="button">Download</a>
+		</div>
+	</div>
+
+	<div class="footer">
+		<a href="https://saweria.co/retroverze" class="button">
+			<img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F01c81f8c-18c9-47d7-b7ad-c04058016626_225x225.png"
+				alt="Saweria Logo" style="height: 20px; vertical-align: middle; margin-right: 8px;">Saweria
+		</a> || 
+		<a href="https://ko-fi.com/retroverze" class="button">
+			Ko-fi<img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt="Ko-fi Logo"
+				style="height: 20px; vertical-align: middle; margin-left: 8px;">
+		</a>
+		<p>Made with ❤️ by Felis</p>
+	</div>
 </body>
 
 </html>
